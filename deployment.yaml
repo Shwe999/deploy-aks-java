@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-java-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-java-sample
+  template:
+    metadata:
+      labels:
+        app: aks-java-sample
+    spec:
+      containers:
+      - name: aks-java-sample
+        image: acraz2003rg1.azurecr.io/aks-java-sample:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-java-sample-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: aks-java-sample
