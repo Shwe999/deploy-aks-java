@@ -36,3 +36,5 @@ kubectl apply -f deployment.yaml
 kubectl get svc aks-java-sample-service // Access via the EXTERNAL-IP
 ```
 Open `http://<EXTERNAL-IP>/` to see the greeting.
+
+`Tags: Container Registry, Docker, Dockerfile, Docker image, AKS, Kubectl, Java`
